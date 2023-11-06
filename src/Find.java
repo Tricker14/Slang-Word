@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Find {
@@ -16,7 +19,6 @@ public class Find {
         JTextField search = new JTextField(30);
 
         JPanel pane1 = new JPanel();
-        pane1.setLayout(new FlowLayout());
         pane1.add(title);
         pane1.add(search);
 
@@ -42,6 +44,7 @@ public class Find {
             @Override
             public void actionPerformed(ActionEvent e) {
                 findSlangMeaning(search.getText());
+                saveHistory(search.getText(), "history.txt");
             }
         });
     }
@@ -49,9 +52,22 @@ public class Find {
     public void findSlangMeaning(String slang) {
         String meaning = dictionary.get(slang);
         if (meaning != null) {
+            meaning = meaning.replace("| ", "\n"); // Replace | with a newline
             resultArea.setText(meaning);
         } else {
             resultArea.setText("Slang word not found");
+        }
+    }
+
+    public void saveHistory(String slangWord, String fileName){
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
+            bw.write(slangWord);
+            bw.newLine();
+            bw.close();
+        }
+        catch (IOException ex){
+            JOptionPane.showMessageDialog(null, "Error writing data to file", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

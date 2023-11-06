@@ -2,9 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
 public class Main {
@@ -21,7 +19,7 @@ public class Main {
 
         JButton find = new JButton("Find Words");
         JButton definition = new JButton("Find Definition");
-        JButton show = new JButton("Show History");
+        JButton history = new JButton("Show History");
         JButton add = new JButton("Add Word");
         JButton edit = new JButton("Edit Word");
         JButton delete = new JButton("Delete Word");
@@ -31,7 +29,7 @@ public class Main {
 
         menu.add(find);
         menu.add(definition);
-        menu.add(show);
+        menu.add(history);
         menu.add(add);
         menu.add(edit);
         menu.add(delete);
@@ -63,6 +61,26 @@ public class Main {
                 new FindDefinition(dictionary);
             }
         });
+        history.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the SearchScreen when the button is clicked
+                new ShowHistory();
+            }
+        });
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the SearchScreen when the button is clicked
+                new Add(dictionary);
+            }
+        });
+        edit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Edit(dictionary);
+            }
+        });
     }
 
     public static void loadDictionary() {
@@ -81,7 +99,6 @@ public class Main {
             JOptionPane.showMessageDialog(null, "Error reading data from file", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
     public static void main(String[] args) {
         loadDictionary();
         mainScreen();
