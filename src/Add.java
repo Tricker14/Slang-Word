@@ -2,11 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class Add {
@@ -60,7 +55,6 @@ public class Add {
     public void addSlang(String slang, String meaning){
         if(dictionary.get(slang) == null){
             dictionary.put(slang, meaning);
-            saveWordToFile(slang, meaning, "slang.txt");
             JOptionPane.showMessageDialog(null, "Slang word added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
         else{
@@ -73,75 +67,13 @@ public class Add {
                 // Handle overwrite if the user chooses "Overwrite"
                 String newMeaning = meaning;
                 dictionary.replace(slang, newMeaning);
-                overwriteWord(slang, newMeaning, "slang.txt");
                 JOptionPane.showMessageDialog(null, "Slang word overwrite successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else if (choice == 1) {
                 // Handle duplicate if the user chooses "Duplicate"
                 String newMeaning = meaning;
                 dictionary.replace(slang, newMeaning);
-                duplicateWord(slang, newMeaning, "slang.txt");
                 JOptionPane.showMessageDialog(null, "Slang word duplicated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
-        }
-    }
-
-    public void saveWordToFile(String slang, String meaning,String fileName){
-        try{
-            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
-            bw.write(slang + '`' + meaning);
-            bw.newLine();
-            bw.close();
-        }
-        catch (IOException ex){
-            JOptionPane.showMessageDialog(null, "Error writing data to file", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void overwriteWord(String slang, String meaning,String fileName){
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
-            StringBuilder fileContent = new StringBuilder();
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.contains(slang)) {
-                    System.out.println(line);
-                    line = slang + "`" + meaning;
-                    System.out.println(line);
-                }
-                fileContent.append(line).append(System.lineSeparator());
-            }
-            br.close();
-
-            // Write the modified content back to the file
-            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
-            bw.write(fileContent.toString());
-            bw.close();
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error updating meaning", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void duplicateWord(String slang, String meaning, String fileName) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
-            StringBuilder fileContent = new StringBuilder();
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.contains(slang)) {
-                    System.out.println(line);
-                    line += "| " + meaning;
-                    System.out.println(line);
-                }
-                fileContent.append(line).append(System.lineSeparator());
-            }
-            br.close();
-
-            // Write the modified content back to the file
-            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
-            bw.write(fileContent.toString());
-            bw.close();
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error updating meaning", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

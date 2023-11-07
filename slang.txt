@@ -483,7 +483,7 @@ ARF`Laugh
 ARG`Alternate Reality Gaming
 ARGH`frustration| anger
 ARIGATO`Thank You
-ARK`Act of Random Kindness
+ARK`Act of RandomSlang Kindness
 ARPA`Advanced Research Projects Agency
 ARPANET`Advanced Research Projects Agency Network
 ARPU`Average Revenue Per User
@@ -4460,7 +4460,7 @@ NAO`Now
 NAP`Not A Problem
 NAPES`No
 NAPSTER`File sharing site
-NARF`Random interjection
+NARF`RandomSlang interjection
 NARK`Informer
 NARP`Non-Athletic Regular Person
 NARU`Not A Registered User
@@ -5324,7 +5324,7 @@ PRO BONO`For good
 PROB`Probably
 PROBS`Probably
 PROBZ`Probably
-PROC`Programmed Random Occurrence
+PROC`Programmed RandomSlang Occurrence
 PROD`Protestant
 PROG`Progressive rock music| Program
 PROJECT`HOOD
@@ -5471,12 +5471,12 @@ RAH`Pompous or superior person
 RAIL`Line of cocaine
 RAILS`Lines of cocaine
 RAINCHECK`Postponement
-RAK`Random Act of Kindness
-RAM`Random Access Memory
+RAK`RandomSlang Act of Kindness
+RAM`RandomSlang Access Memory
 RANDOM`Unexpected| unpredictable
 RANGA`Redhead derogatory
 RANK`Disgusting| gross
-RAOK`Random Act Of Kindness
+RAOK`RandomSlang Act Of Kindness
 RAP`Music genre
 RAPID`Cool| excellent
 RAPPER`Urban poet
@@ -5497,7 +5497,7 @@ RBAY`Right Back At You
 RBG`Revolutionary But Gangsta
 RBTL`Read Between The Lines
 RBV`Red Bull and Vodka
-RC`Random Chat| Radio Controlled
+RC`RandomSlang Chat| Radio Controlled
 RCH`A very small unit of measurement
 RCON`Remote Console
 RCT`Roller Coster Tycoon
@@ -5505,7 +5505,7 @@ RCVD`Received
 RD`Real Deal
 RDC`Really Don't Care
 RDJ`Robert Downey Jr.
-RDM`Random Death Match
+RDM`RandomSlang Death Match
 RDO`Regular Day Off
 RDR`Red Dead Redemption (Game)
 RDRR`Har-de-har-har
@@ -5588,7 +5588,7 @@ RMV`Results May Vary
 RN`Right Now| Registered Nurse
 RNA`Ribonucleic Acid
 RNB`Rhythm And Blues
-RNG`Random Number Generator
+RNG`RandomSlang Number Generator
 RNR`Rock 'N Roll
 RO`Ragnarok Online (MMORPG)
 ROACH`The end of a JOINT
@@ -5639,7 +5639,7 @@ RPF`Real Person Fiction
 RPG`Rocket Propelled Grenade| Role Playing Game
 RPM`Revolutions Per Minute
 RPS`Rock Paper Scissors (game)
-RQ`Random Questions
+RQ`RandomSlang Questions
 RR`Restroom
 RRD`Rick Rolled
 RROD`Red Ring Of Death
@@ -5693,7 +5693,7 @@ RW`Read-Write
 RWD`Rear Wheel Drive
 RWL`Roaring With Laughter
 RWNJ`Right Wing Nut Job
-RWP`Random Wall Post
+RWP`RandomSlang Wall Post
 RWYS`Reap What You Sow
 RX`Prescription
 RYC`Regarding Your Comment
@@ -5791,7 +5791,7 @@ SD`Sweet Dreams| Secure Digital| So Drunk
 SDA`Seventh-Day Adventist
 SDK`Software Development Kit
 SDMF`Strength, Determination, Merciless, Forever| Society Dwelling Mother F***er
-SDRAM`Synchronous Dynamic Random Access Memory
+SDRAM`Synchronous Dynamic RandomSlang Access Memory
 SDSL`Symmetric DSL
 SE`Special Edition
 SEC`Second
@@ -7659,5 +7659,4 @@ ZZZ`Sleepy| bored| tired
 }:-)`Devilish smile
 ~`Denotes Sarcasm| Put At The End Of A Word To Make It Longer
 Æ`Registered Trademark Symbol
-ô`Trademark
-:v`lmao
+ô`Trademark:v`lmao

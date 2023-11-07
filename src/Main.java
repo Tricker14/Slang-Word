@@ -81,6 +81,31 @@ public class Main {
                 new Edit(dictionary);
             }
         });
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Delete(dictionary);
+            }
+        });
+        reset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadDictionary();
+                JOptionPane.showMessageDialog(null, "Reset list successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        random.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RandomSlang(dictionary);
+            }
+        });
+        quiz.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Quiz(dictionary);
+            }
+        });
     }
 
     public static void loadDictionary() {
