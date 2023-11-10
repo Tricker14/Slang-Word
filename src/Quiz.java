@@ -264,5 +264,4 @@ public class Quiz {
             JOptionPane.showMessageDialog(null, "Sorry, that's incorrect", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }
