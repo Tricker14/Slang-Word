@@ -55,6 +55,7 @@ public class FindDefinition {
             }
         }
         if (slangs.size() > 0) {
+            resultArea.setText("");
             for (String slang : slangs) {
                 resultArea.append(slang + "\n"); // Display each slang word on a new line
             }

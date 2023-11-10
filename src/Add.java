@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.HashMap;
 
 public class Add {
@@ -56,6 +57,7 @@ public class Add {
         if(dictionary.get(slang) == null){
             dictionary.put(slang, meaning);
             JOptionPane.showMessageDialog(null, "Slang word added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            addSlang(slang, meaning, "data.txt");
         }
         else{
             // Slang already exists, show a dialog with three choices
@@ -68,12 +70,57 @@ public class Add {
                 String newMeaning = meaning;
                 dictionary.replace(slang, newMeaning);
                 JOptionPane.showMessageDialog(null, "Slang word overwrite successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                alterSlang(slang, newMeaning, "data.txt");
             } else if (choice == 1) {
                 // Handle duplicate if the user chooses "Duplicate"
-                String newMeaning = meaning;
-                dictionary.replace(slang, newMeaning);
-                JOptionPane.showMessageDialog(null, "Slang word duplicated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                String oldMeaning = dictionary.get(slang);
+                if(oldMeaning.contains(meaning)){
+                    JOptionPane.showMessageDialog(null, "This meaning already exist", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    String newMeaning = oldMeaning + "| " + meaning; // Append the new meaning.
+                    System.out.println(newMeaning);
+                    dictionary.replace(slang, newMeaning);
+                    JOptionPane.showMessageDialog(null, "Slang word duplicated successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    alterSlang(slang, newMeaning, "data.txt");
+                }
             }
+        }
+    }
+    public void addSlang(String slang, String meaning, String fileName){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            writer.write(slang + "`" + meaning);
+            writer.newLine(); // Add a newline for the next entry
+
+            // Close the writer
+            writer.close();
+        }
+        catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Error adding new word", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void alterSlang(String slang, String meaning, String fileName) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            StringBuilder fileContent = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains(slang)) {
+                    System.out.println(line);
+                    line = slang + "`" + meaning;
+                    System.out.println(line);
+                }
+                fileContent.append(line).append(System.lineSeparator());
+            }
+            br.close();
+
+            // Write the modified content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+            bw.write(fileContent.toString());
+            bw.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error adding new word", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

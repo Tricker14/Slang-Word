@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.HashMap;
 
 public class Edit {
@@ -60,6 +61,30 @@ public class Edit {
             String newMeaning = meaning;
             dictionary.replace(slang, newMeaning);
             JOptionPane.showMessageDialog(null, "Edit slang word successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            alterSlang(slang, meaning, "data.txt");
+        }
+    }
+    public void alterSlang(String slang, String meaning, String fileName) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            StringBuilder fileContent = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains(slang)) {
+                    System.out.println(line);
+                    line = slang + "`" + meaning;
+                    System.out.println(line);
+                }
+                fileContent.append(line).append(System.lineSeparator());
+            }
+            br.close();
+
+            // Write the modified content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+            bw.write(fileContent.toString());
+            bw.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error adding new word", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

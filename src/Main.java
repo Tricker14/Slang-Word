@@ -113,6 +113,7 @@ public class Main {
         try {
             BufferedReader br = new BufferedReader(new FileReader("slang.txt"));
             String line;
+            br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("`");
                 if (parts.length == 2) {
@@ -123,8 +124,29 @@ public class Main {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error reading data from file", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        System.out.println(dictionary.size());
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("data.txt"))) {
+            for (String key : dictionary.keySet()) {
+                String value = dictionary.get(key);
+                String outputLine = key + "`" + value;
+                bw.write(outputLine);
+                bw.newLine(); // Add a newline to separate entries
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error writing data to file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public static void clearHistory() {
+        try {
+            PrintWriter writer = new PrintWriter("history.txt");
+            writer.print(""); // This will clear the file.
+            writer.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error clearing data from file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public static void main(String[] args) {
+        clearHistory();
         loadDictionary();
         mainScreen();
     }

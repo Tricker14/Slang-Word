@@ -32,7 +32,6 @@ public class ShowHistory {
 
         readHistory(model);
     }
-
     public static void readHistory(DefaultTableModel model){
         try{
             BufferedReader br = new BufferedReader(new FileReader("history.txt"));

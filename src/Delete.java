@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Delete {
@@ -53,10 +56,23 @@ public class Delete {
         else{
             dictionary.remove(slang);
             JOptionPane.showMessageDialog(null, "Delete slang word successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            deleteInFile();
         }
     }
     public int showConfirmationDialog() {
         int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this slang word?", "Confirmation", JOptionPane.YES_NO_OPTION);
         return choice;
+    }
+    public void deleteInFile(){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("data.txt"))) {
+            for (String key : dictionary.keySet()) {
+                String value = dictionary.get(key);
+                String outputLine = key + "`" + value;
+                bw.write(outputLine);
+                bw.newLine(); // Add a newline to separate entries
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error writing data to file", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
