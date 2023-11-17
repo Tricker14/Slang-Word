@@ -162,7 +162,6 @@ SIV`Bad goalie in hockey
 BHH`Bless His/Her Heart
 YTMND`You're The Man Now, Dog
 BHM`Big Handsome Man
-Æ`Registered Trademark Symbol
 BHO`Barak Hussein Obama
 8====D`Penis
 BHS`Be Home Soon
@@ -183,7 +182,6 @@ BIS`Best In Slot
 SKI`Spend Kids' Inheritance| Snort cocaine
 TWYL`Talk With You Later
 BIZ`Business
-ô`Trademark
 SKL`School
 DYLM`Do You Love/Like Me?
 SKO`Let's Go
@@ -3663,6 +3661,7 @@ TMAI`Tell Me About It
 JPEG`Joint Photographic Experts Group| Image file format
 DINLO`Stupid person
 YRG`You Are Good!
+ô`Trademark
 IMBO`In My Biased Opinion
 YRO`Your Rights Online
 TMBG`They Might Be Giants (band)
@@ -6759,6 +6758,7 @@ YBWM`You Belong With Me
 HAGD`Have A Good Day
 WYBMV`Will You Be My Valentine?
 SLUGS`Bullets
+Æ`Registered Trademark Symbol
 LMSO`Laughing My Socks Off
 HAGL`Have A Good Life
 IDLT`I Don't Like That
@@ -7637,3 +7637,4 @@ BAU`Business As Usual
 SCH`School
 BAY`Baby
 SCO`San Fransisco
+:v`add
